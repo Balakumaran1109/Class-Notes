@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+     <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark table-bordered">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry the Bird</td>
+            <td>hell0</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+      <style>
+      .table-striped tbody tr:nth-of-type(even){
+        background-color: blueviolet;
+        }
+        .table-striped tbody tr:nth-of-type(odd){
+        background-color: rgb(3, 212, 149);
+        }
+        .table-bordered{
+            border: solid rgb(151, 10, 10);
+        }</style>
+
+        <div class="container">
+            <div class="row p-5 border-primary">
+                <div class="col p-4 border border-warning bg-primary">
+                    column1
+                </div>
+                <div class="col p-4 border bg-warning">
+                    column2
+                </div>
+                <div class="col p-4 border bg-info">
+                    column3
+                </div>
+            </div>
+        </div>
+</body>
+</html>

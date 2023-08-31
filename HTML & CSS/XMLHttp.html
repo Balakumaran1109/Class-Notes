@@ -1,0 +1,96 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    <script>
+
+    let xhr = new XMLHttpRequest()
+
+let method = "GET"
+
+let url = "https://restcountries.com/v3.1/all"
+
+xhr.open(method, url, true)
+
+xhr.onload = function(){
+  if(xhr.status == 200){
+    var response = JSON.parse(xhr.responseText)
+    for(var i=0; i<response.length; i++)
+    console.log(response[i].name.common, response[i].region, response[i].subregion, response[i].population)
+    }
+    else{
+    console.log('request failed', xhr.status)
+    }
+    }
+    
+    xhr.send()
+</script>
+</body>
+</html> -->
+
+
+
+
+
+
+<!-- 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    <script>
+
+    let xhr = new XMLHttpRequest()
+
+let method = "GET"
+
+let url = "https://restcountries.com/v3.1/all"
+
+xhr.open(method, url, true)
+
+xhr.onload = function(){
+  if(xhr.status == 200){
+    var response = JSON.parse(xhr.responseText) -->
+
+    <!-- // let output = response.filter(e=> e.region === 'Asia')
+    // let countries = output.map(e=> e.name.common)
+    // console.log(countries)
+
+    // let output = response.filter(e=> e.population < 200000)
+    // console.log(output.map(e=>e.name.common))
+
+    // response.forEach(e=>{
+    // console.log(e.name);
+    // console.log(e.capital);
+    // console.log(e.flag);
+    // })
+
+    // let output = response.reduce((function(e1,e2){
+    //     return e1 + e2.population
+    // }),0)
+
+    // console.log(output)
+
+    
+     let USDollar = response.filter(e=>{
+         let currency = e.currencies;
+         if(currency && currency.USD) 
+         return true;
+         else{
+             return false
+         }
+
+    
+         USDollar.forEach(e=>console.log(e.name.common))
+    })
+

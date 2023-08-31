@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="./index.js"></script>
+</head>
+<style>
+    .container{
+        background-color: orange;
+        padding: 20px;
+        width: 500px;
+        border: 1px solid black;
+        margin: 0 auto;
+        border-radius: 10px;
+    }
+    .container1{
+        background-color: rgb(75, 179, 54);
+        padding: 20px;
+        width: 500px;
+        border: 1px solid black;
+        margin: 0 auto;
+        border-radius: 10px;
+    }
+</style>
+<body>
+
+    <div class="container">
+        <h1 style="text-align: center; margin-bottom: 40px;">Calculator</h1>
+        <div style="margin: 20px;">
+            <label for="num1"><b>Number 1 :</b></label>
+            <input id="num1" type="number"><br><br>
+            <label for="num2"><b>Number 2 :</b></label>
+            <input id="num2" type="number"><br><br>
+
+            <div style="margin: 20px; padding-left: 30px;padding-bottom: 10px
+            ;">
+                <button onclick="calculator('add')">Add</button>
+                <button onclick="calculator('sub')">Sub</button>
+                <button onclick="calculator('mul')">Mul</button>
+                <button onclick="calculator('div')">Div</button>
+            </div>
+        </div>
+
+        <div>
+            <h3 style="padding-left: 90px;">Result : <span id="result"></span></h3>
+        </div>
+    </div>
+    
+
+
+<div class="container1" style="margin-top: 30px;">
+    <h1 style="text-align: center; margin-bottom: 40px;">Calculator </h1>
+
+        <div style="margin: 20px; padding-bottom: 10px
+        ;">
+           <div><b>For Addition =></b> <button onclick="calculator('add')">+</button></div><br>
+           <div><b>For Subraction =></b> <button onclick="calculator('add')">-</button></div><br>
+           <div><b>For Multiplication =></b> <button onclick="calculator('add')">*</button></div><br>
+           <div><b>For Division =></b> <button onclick="calculator('add')">/</button></div>
+        
+        </div>
+
+    <div>
+        <h3 style="padding-left: 20px;">Result : <span id="result1"></span></h3>
+    </div>
+</div>
+
+</body>
+</html>

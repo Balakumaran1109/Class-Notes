@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day_4</title>
+    <style>
+        .container{
+            background-color: aqua;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap:10px;
+            padding: 10px;
+            border: 1px solid;
+        }
+
+        .box{
+            background-color: goldenrod;
+            border: 1px dotted black;
+            padding: 10px;
+        }
+
+        .container_flex{
+            display: flex;
+            /* flex-direction: row; */
+            /* flex-wrap: wrap; */
+            flex-flow: column wrap;
+            justify-content: end;
+            align-content: center;
+            background-color: rgb(81, 255, 0);
+            padding: 10px;
+            border: 1px solid;
+        }
+
+        .flex{
+            background-color: rgb(160, 23, 214);
+            border: 1px dotted black;
+            flex: 0 0 auto;
+            margin:10px;
+            padding: 10px;
+
+        }
+
+        .box-1{
+            background-color: grey;
+            border: 1px solid black;
+            padding: 10px;
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+        }
+
+        .static{
+            position: static;
+        }
+
+        .relative{
+            position: relative;
+            top: 20px;
+            left: 20px;
+        }
+
+        .fixed{
+            position: fixed;
+            top: 100px;
+            left: 200px;
+        }
+        
+        .absolute{
+         position: absolute;
+         top: 800px;
+         left: 300px;            
+        }
+
+        .sticky{
+            position: sticky;
+            top: 200px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>GRID</h1>
+    <div class="container">
+        <div class="box" style="grid-column: 3; grid-row: 1;" >Grid 1</div>
+        <div class="box" style="grid-column: 2; grid-row: 1;">Grid 2</div>
+        <div class="box">Grid 3</div>
+        <div class="box">Grid 4</div>
+        <div class="box" style="grid-column:2; grid-row: 2;">Grid 5</div>
+        <div class="box" style="grid-column: 1; grid-row: 2;">Grid 6</div>
+    </div> 
+
+    <div>
+    <h1>Flex</h1>
+    <div class="container_flex">
+        <div class="flex" style="grid-column: 3; grid-row: 1;" >Flex 1</div>
+        <div class="flex" style="grid-column: 2; grid-row: 1;">Flex 2</div>
+        <div class="flex">Flex 3</div>
+        <div class="flex">Flex 4</div>
+        <div class="flex" style="grid-column:2; grid-row: 2;">Flex 5</div>
+        <div class="flex" style="grid-column: 1; grid-row: 2;">Flex 6 </div></div>
+
+        <h1>Position</h1>
+
+        <div class="box-1 sticky">sticky</div>
+        <div class="box-1 static">static</div>
+        <div class="box-1 relative">relative</div>
+        <div class="box-1 fixed">fixed</div>
+        <div class="box-1 absolute">absolute</div>
+        <div class="box-1 sticky">sticky</div>
+</body>
+</html>

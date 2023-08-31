@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day_5</title>
+
+    <style>
+
+    .container{
+        color: orange;
+    }
+
+    .box{
+        color: magenta;
+    }
+
+    .box span{
+        color: blue;
+    }
+
+    .box1{
+        color: green;
+    }
+
+    .box1 span{
+        color: inherit;
+    }
+
+    #grad1{
+        background-image: linear-gradient(to left, grey, white);
+        width: 400px;
+        height: 300px;
+        border: 1px solid darkgray;
+    }
+
+    #grad2{
+        background-image: radial-gradient(circle, rgb(30, 133, 119),rgb(29, 21, 139),black);
+        width: 400px;
+        height: 300px;
+        border: 1px solid rgb(0, 0, 0);
+    }
+    #grad3{
+        background-image: conic-gradient(red, yellow, green, blue, black);
+        width: 400px;
+        height: 300px;
+        border: 1px solid rgb(12, 4, 4);
+    }
+
+    .box{
+        border: 1px solid black;
+        width: 300px;
+        height: 64px;
+        background-color: aqua;
+        margin: 10px;
+    }
+
+    .box1{
+        border: 1px solid black;
+        width: 12rem;
+        height: 8rem;
+        background-color: aqua;
+        margin: 10px;
+    }
+
+    .box2{
+        border: 1px solid black;
+        width: 50vw;
+        height: 30vh;
+        background-color: aqua;
+        margin: 10px;
+    }
+</style> 
+</head>
+<body>
+    <div class="container">
+       this is parent element
+       <div class="box">this is <span>child element</span></div>
+       <div class="box1">this is <span>child element - inherit</span></div>
+    </div><br>
+
+
+    <h1>Linear Gradient - Left to Right</h1>
+    <div id="grad1"></div>
+
+
+    <h1>Radial Gradient - Circle</h1>
+    <div id="grad2"></div>
+
+    <h1>Conic Gradient - Five colours</h1>
+    <div id="grad3"></div>
+
+
+
+
+    <h1>Measurements</h1>
+    <h2>Relative length units</h2>
+
+    <div class="box"></div>
+    <div class="box1"></div>
+    <div class="box2"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day_3</title>
+
+    <style>
+      #blue {
+        color: blue;
+      }
+
+      #red {
+        color: red;
+      }
+
+      .green{
+        color: green;
+        background-color: #13c8ce;
+      }
+
+      .yellow{
+        color: yellow;
+        background-color: rgb(185, 34, 148);
+      }
+
+      .blue{
+        color: blue;
+        background-color: rgb(140, 185, 34);
+      }
+
+      .inline{
+        display: inline;
+      }
+
+      .block{
+        display: block;
+      }
+
+      #inline-block{
+        display: inline-block;
+        background-color: aqua;
+        width: 500px;
+      }
+
+      .box{
+        background: yellow;
+        padding: 50px;
+        border: 2px solid ;
+        display: inline-block;
+        margin: 40px;
+        
+      }
+
+      #hover:hover{
+        color: red;
+      }
+
+      #unvisited:link{
+        color: rgb(0, 0, 0);
+      }
+
+      #visited:visited{
+        color: rgb(56, 175, 32);
+      }
+
+      #active:active{
+        color: rgb(243, 101, 6);
+      }
+
+      li:nth-child(even){
+        color: green;
+      }
+
+      li:nth-child(odd){
+        color: rgb(29, 11, 185);
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>Example for id</h1>
+      <p id="blue">This line in blue color</p>
+      <p id="red">This line in red color</p>
+
+      <h1>Example for class</h1>
+
+      <h2>Front End</h2>
+        <div class="green">Html</div>
+        <div class="green">Css</div>
+        <div class="green">JS</div>
+        <div class="green">React</div>
+
+      <h2>Backend</h2>
+        <div class="yellow">Node JS</div>
+        <div class="yellow">Express</div>
+
+      <h2>Database</h2>
+        <div class="blue">MySql</div>
+        <div class="blue">MangoDB</div><br><br>
+
+        <div>
+            <p class="inline">Example for inline property </p>
+            <p class="inline"> - Block element behaves like inline</p>
+        </div><br>
+
+        <span>
+            <p class="block">Example for block property </p>
+            <p class="block"> Inline element behaves like Block element</p>
+        </span><br>
+
+        <span id="inline-block">Example for inline-block property</span><br><br><br>
+
+        <div class="box">
+            <p>Box Model</p>
+        </div>
+
+        <div class="box">
+            <p>Box Model</p>
+        </div>
+
+
+        <div>
+          <a id="hover" href="https://tamilyogi.band/" target="_blank">Hover here to change the color</a>
+        </div><br>
+
+        <div>
+          <a id="unvisited" href="https://www.texas.gov/" target="_blank">This link is unvisited </a>
+        </div><br>
+
+        <div>
+          <a id="visited" href="https://www.texas.gov/" target="_blank">This link is visited </a>
+        </div><br>
+
+        <div>
+          <a id="active" href="https://www.texas.gov/" target="_blank">Click this link </a>
+        </div><br>
+
+        <div>
+          <h3>Example for nth-child(odd)</h3>
+          <h3>Example for nth-child(even)</h3>
+          <ul>
+            <li>Blue</li>
+            <li>Green</li>
+            <li>Blue</li>
+            <li>Green</li>
+            <li>Blue</li>
+            <li>Green</li>
+          </ul>
+        </div>
+
+
+
+  </body>
+</html>

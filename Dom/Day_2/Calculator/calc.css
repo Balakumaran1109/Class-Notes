@@ -1,0 +1,35 @@
+.container{
+    max-width: 300px;
+    border-radius: 20px;
+    margin: 30px;
+    padding: 30px;
+}
+
+#clear{
+    height: 90px;
+    background-color: rgb(238, 66, 4);
+}
+#clear:hover{
+    background-color: orange !important
+}
+
+#equal{
+    height: 90px;
+    background-color: rgb(238, 66, 4);
+    font-size: larger;
+}
+#equal:hover{
+    background-color: orange !important
+}
+
+button{
+    color: white !important
+}
+input{
+    color: white !important;
+    text-align: end;
+}
+
+button:hover{
+    background-color: rgb(46, 46, 46) !important
+}

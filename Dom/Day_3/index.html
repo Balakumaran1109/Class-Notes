@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" style="display: inline-block; border: 1px solid black; padding: 20px;">
+        <div id="click" style="border: 1px solid black; padding: 20px; margin: 20px;">Click here to change the background color</div>
+        <div id="hover" style="border: 1px solid black; padding: 20px; margin: 20px;">Hover here to change the background color</div>
+        <div id="out" style="border: 1px solid black;padding: 20px; margin: 20px; ">out the mouse here to change the background color</div>
+    </div>
+
+    <script>
+        let clickElement = document.getElementById("click")
+        let hoverElement = document.getElementById("hover")
+        let outElement = document.getElementById("out")
+
+
+        clickElement.addEventListener("click",function(){
+            clickElement.style.backgroundColor = "blue" ;
+        })
+
+        clickElement.addEventListener("mouseout",function(){
+            clickElement.style.backgroundColor = "white" ;
+        })
+
+
+        hoverElement.addEventListener("mouseover",function(){
+            hoverElement.style.backgroundColor = "blue" ;
+        })
+
+        hoverElement.addEventListener("mouseout",function(){
+            hoverElement.style.backgroundColor = "white" ;
+        })
+
+
+        outElement.addEventListener("mouseout",function(){
+            outElement.style.backgroundColor = "blue" ;
+        })
+
+        document.addEventListener("keydown",function(){
+            console.log("Keydown event:", event.key)
+        })
+    </script>
+</body>
+</html>

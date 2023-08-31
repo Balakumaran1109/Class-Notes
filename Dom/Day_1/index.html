@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        div{
+            border: 1px solid black;
+            text-align: center;
+            padding: 20px;
+            background-color:gold;
+            margin: 15px;
+        }
+        h2{
+            border: 1px solid;
+            padding: 20px;
+        }
+       
+    </style>
+</head>
+<body>
+
+    <div id="Guvi">
+        <h1>Welcome to Guvi</h1>
+
+        <P class="para">Weekend & weekday classes</P>
+        <P class="para">Course duration 3 to 5 month</P>
+        <P class="para">Mentors from Global Product companies</P>
+    </div>
+    
+
+     <script>
+        let headerElement = document.createElement("h2")
+        headerElement.setAttribute("id","header")
+        headerElement.innerText = "For registration "
+
+        let link = document.createElement("a")
+        link.setAttribute("href","https://www.guvi.in/")
+        link.setAttribute("target","_blank")
+        link.innerText = " Click here "
+        
+        let appendElement =  document.getElementById("Guvi")
+        appendElement.appendChild(headerElement)
+
+        let appendLink =  document.getElementById("header")
+        appendLink.appendChild(link)
+
+        let listElement = document.createElement("div")
+        listElement.setAttribute("id","list")
+        listElement.innerHTML = `<ul><h3>Below courses are available</h1><li>Full stack web development</li><li>Data science</li><li>UI/UX developer</li></ul>`
+
+        let appendList = document.getElementById("header")
+        appendList.appendChild(listElement,link,appendElement)
+
+        let para = document.createElement("p")
+        para.setAttribute("id", "para")
+        para.innerText = "Available languages are Tamil, English, Hindi and 100% placement support available."
+
+        let appendPara = document.querySelector("#header")
+        appendPara.append(para)
+
+        let Para = document.querySelectorAll(".para")
+        Para.forEach(element => {
+            element.style.color = "blue";
+        });
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
