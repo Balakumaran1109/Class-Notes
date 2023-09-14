@@ -1,8 +1,9 @@
 let container = document.createElement("div");
-container.classList.add("container", "bg-black", "text-center", "m-sm-5");
+container.classList.add("container", "bg-black", "text-center", "p-3", "m-sm-5","m-1");
 document.body.appendChild(container);
 
 let container1 = document.createElement("div");
+container1.classList.add("p-2");
 let inputArea = document.createElement("input");
 inputArea.setAttribute("id", "result");
 inputArea.setAttribute("type", "text");
@@ -11,97 +12,98 @@ container1.appendChild(inputArea);
 container.appendChild(container1);
 
 let buttonContainer = document.createElement("div");
+buttonContainer.classList.add("p-2")
 container.appendChild(buttonContainer);
 
 let buttonSub = document.createElement("button");
 buttonSub.setAttribute("id", "sub");
 buttonSub.innerText = "-";
-buttonSub.classList.add("btn", "btn-secondary", "m-1", "col-2");
+buttonSub.classList.add("btn", "btn-secondary", "m-2", "col-2");
 
 let buttonAdd = document.createElement("button");
 buttonAdd.setAttribute("id", "add");
 buttonAdd.innerText = "+";
-buttonAdd.classList.add("btn", "btn-secondary", "m-1", "col-2");
+buttonAdd.classList.add("btn", "btn-secondary", "m-2", "col-2");
 
 let buttonMul = document.createElement("button");
 buttonMul.setAttribute("id", "mul");
 buttonMul.innerText = "*";
-buttonMul.classList.add("btn", "btn-secondary", "m-1", "col-2");
+buttonMul.classList.add("btn", "btn-secondary", "m-2", "col-2");
 
 let buttonDiv = document.createElement("button");
 buttonDiv.setAttribute("id", "div");
 buttonDiv.innerText = "/";
-buttonDiv.classList.add("btn", "btn-secondary", "m-1", "col-2");
+buttonDiv.classList.add("btn", "btn-secondary", "m-2", "col-2");
 
 let button7 = document.createElement("button");
 button7.setAttribute("id", "num7");
 button7.innerText = "7";
-button7.classList.add("btn", "btn-secondary", "m-1", "col-2");
+button7.classList.add("btn", "btn-secondary", "m-2", "col-2");
 
 let button8 = document.createElement("button");
 button8.setAttribute("id", "num8");
 button8.innerText = "8";
-button8.classList.add("btn", "btn-secondary", "m-1", "col-2");
+button8.classList.add("btn", "btn-secondary", "m-2", "col-2");
 
 let button9 = document.createElement("button");
 button9.setAttribute("id", "num9");
 button9.innerText = "9";
-button9.classList.add("btn", "btn-secondary", "m-1", "col-2");
+button9.classList.add("btn", "btn-secondary", "m-2", "col-2");
 
 let button4 = document.createElement("button");
 button4.setAttribute("id", "num4");
 button4.innerText = "4";
-button4.classList.add("btn", "btn-secondary", "m-1", "col-2");
+button4.classList.add("btn", "btn-secondary", "m-2", "col-2");
 
 let button5 = document.createElement("button");
 button5.setAttribute("id", "num5");
 button5.innerText = "5";
-button5.classList.add("btn", "btn-secondary", "m-1", "col-2");
+button5.classList.add("btn", "btn-secondary", "m-2", "col-2");
 
 let button6 = document.createElement("button");
 button6.setAttribute("id", "num6");
 button6.innerText = "6";
-button6.classList.add("btn", "btn-secondary", "m-1", "col-2");
+button6.classList.add("btn", "btn-secondary", "m-2", "col-2");
 
 let button1 = document.createElement("button");
 button1.setAttribute("id", "num1");
 button1.innerText = "1";
-button1.classList.add("btn", "btn-secondary", "m-1", "col-2");
+button1.classList.add("btn", "btn-secondary", "m-2", "col-2");
 
 let button2 = document.createElement("button");
 button2.setAttribute("id", "num2");
 button2.innerText = "2";
-button2.classList.add("btn", "btn-secondary", "m-1", "col-2");
+button2.classList.add("btn", "btn-secondary", "m-2", "col-2");
 
 let button3 = document.createElement("button");
 button3.setAttribute("id", "num3");
 button3.innerText = "3";
-button3.classList.add("btn", "btn-secondary", "m-1", "col-2");
+button3.classList.add("btn", "btn-secondary", "m-2", "col-2");
 
 let button0 = document.createElement("button");
 button0.setAttribute("id", "num0");
 button0.innerText = "0";
-button0.classList.add("btn", "btn-secondary", "m-1", "col-2");
+button0.classList.add("btn", "btn-secondary", "m-2", "col-2");
 
 let buttonDot = document.createElement("button");
 buttonDot.setAttribute("id", "dot");
 buttonDot.innerText = ".";
-buttonDot.classList.add("btn", "btn-secondary", "m-1", "col-2");
+buttonDot.classList.add("btn", "btn-secondary", "m-2", "col-2");
 
 let buttonMod = document.createElement("button");
 buttonMod.setAttribute("id", "mod");
 buttonMod.innerText = "%";
-buttonMod.classList.add("btn", "btn-secondary", "m-1", "col-2");
+buttonMod.classList.add("btn", "btn-secondary", "m-2", "col-2");
 
 let buttonEqual = document.createElement("button");
 buttonEqual.setAttribute("id", "equal");
 buttonEqual.innerText = "=";
-buttonEqual.classList.add("btn", "btn-secondary", "m-1", "col-3");
+buttonEqual.classList.add("btn", "btn-secondary", "m-2", "col-4");
 
 let buttonC = document.createElement("button");
 buttonC.setAttribute("id", "c");
 buttonC.innerText = "C";
-buttonC.classList.add("btn", "btn-secondary", "m-1", "col-3");
+buttonC.classList.add("btn", "btn-secondary", "m-2", "col-4");
 
 buttonContainer.append(
   buttonSub,
@@ -124,40 +126,21 @@ buttonContainer.append(
   buttonEqual
 );
 
-//    function back() {
-//         var len=document.getElementById('display');
-//         var inner=len.innerHTML;
-//         len="";
-//         inner=inner.split("");
-//         inner=inner.splice(inner.length-1,1)
-//         inner=inner.join("");
-//         len.value=inner;
-//         }
+let display = document.getElementById("result");
+display.readOnly = true;
 
-//    let keyEvent = document.getElementById("result");
-
-document.addEventListener("keydown", function(event) {
-    const key = event.key;
-    if (/[0-9]/.test(key)) {
-        input(key);
-    } else if (key === "=" || key === "Enter") {
-        output();
-    } else if (!/[\+\-\*\/]/.test(key)) {
-        alert("Only number keys are allowed!");
-        input1();
-    }
+document.addEventListener("keydown", function (event) {
+  const key = event.key;
+  if (/[0-9]/.test(key)) {
+    input(key);
+  } else {
+    alert("Only numbers are allowed!");
+  }
 });
-
-
 
 function input(val) {
   document.getElementById("result").value += val;
 }
-
-function input1() {
-    document.getElementById("result").value = 
-      (document.getElementById("result").value).length -1;
-  }
 
 function clearScreen() {
   document.getElementById("result").value = "";
@@ -167,7 +150,6 @@ function output() {
   let x = document.getElementById("result").value;
   let y = eval(x);
   document.getElementById("result").value = y;
-  return ;
 }
 
 let inputSub = document.getElementById("sub");
@@ -220,8 +202,8 @@ input6.addEventListener("click", function () {
   input("6");
 });
 
-let input1 = document.getElementById("num1");
-input1.addEventListener("click", function () {
+let input11 = document.getElementById("num1");
+input11.addEventListener("click", function () {
   input("1");
 });
 
@@ -259,3 +241,4 @@ let inputEqual = document.getElementById("equal");
 inputEqual.addEventListener("click", function () {
   output();
 });
+
