@@ -33,19 +33,59 @@
 
 
 
-let url = "https://restcountries.com/v3.1/all";
+// let url = "https://restcountries.com/v3.1/all";
 
-fetch(url).then((response)=>{
-    if(response.status === 200){
-    return response.json();
-    }
+// fetch(url).then((response)=>{
+//     if(response.status === 200){
+//     return response.json();
+//     }
+// }).then((val)=>{
+//     console.log(val)
+//     for(i of val){
+//     if(i.name.common === "India")
+//     console.log(i.flag);
+//     }
+// })
+// .catch((err)=>{
+//     console.log(err)
+// })
+
+
+
+
+function promiseObj1(){
+    return new Promise(function(resolve,reject){
+        setTimeout(()=>{
+            resolve("Promise obj1 is defined")
+        },3000)
+    })
+}
+
+
+function promiseObj2(){
+    return new Promise(function(resolve,reject){
+        setTimeout(()=>{
+            resolve("Promise obj2 is defined")
+            promiseObj3()
+        },3000)
+    })
+}
+
+function promiseObj3(){
+    return new Promise(function(resolve,reject){
+        setTimeout(()=>{
+            resolve("Promise obj3 is defined")
+        },3000)
+    })
+}
+promiseObj1().then((val)=>{
+    console.log(val);
+    return promiseObj2()
 }).then((val)=>{
-    console.log(val)
-    for(i of val){
-    if(i.name.common === "India")
-    console.log(i.flag);
-    }
-})
-.catch((err)=>{
+    console.log(val);
+    return promiseObj3()
+}).then((val)=>{
+    console.log(val);
+}).catch((err)=>{
     console.log(err)
 })
