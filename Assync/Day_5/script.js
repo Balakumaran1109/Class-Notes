@@ -1,71 +1,160 @@
-let data = [{name:"john", age:22}, 
-           {name:"David", age:20},
-        ];
+// let data = [{name:"john", age:22}, 
+//            {name:"David", age:20},
+//         ];
 
+
+// function displayData(){
+//     let dataRow = document.getElementById("inputData");
+//     dataRow.innerHTML="";
+//     data.forEach((value,index)=>{
+//         let addRow = `<tr>
+//         <td>${value.name}</td>
+//         <td>${value.age}</td>
+//         <td><button class="btn btn-info" data-index="${index}">Edit</button>
+//         <button class="btn btn-danger" data-index="${index}">Delete</button></td></tr>`;
+
+//         dataRow.insertAdjacentHTML("beforeend", addRow);
+//     });
+// }
+//     function formSubmit(event){
+//         event.preventDefault();
+        
+//         let nameInput = document.getElementById("name"); 
+//         let ageInput = document.getElementById("age");
+
+//         let name = nameInput.value;
+//         let age = ageInput.value;
+    
+//         data.push({name, age});
+    
+//         nameInput.value = "";
+//         ageInput.value = "";
+    
+//         displayData(); 
+    
+//     }
+
+//     function editData(event){
+//         let index = event.target.getAttribute("data-index");
+//         let record = data[index];
+
+//         let nameInput = document.getElementById("name");
+//         let ageInput = document.getElementById("age");
+
+//         nameInput.value = record.name;
+//         ageInput.value = record.age;
+
+//         data.splice(index, 1);
+//         displayData();
+//     }
+
+//     function deleteData(event){
+//         let index = event.target.getAttribute("data-index");
+//         data.splice(index, 1);
+//         displayData();
+//     }
+
+
+
+//     let submit = document.getElementById("form");
+//     submit.addEventListener("submit", formSubmit);
+
+//     document.getElementById("inputData").addEventListener("click", (event)=>{
+//        if(event.target.classList.contains("btn-info")){
+//         editData(event);
+//        }
+//        else if(event.target.classList.contains("btn-danger")){
+//         alert("edit btn clicked");
+//        }
+//     });
+// displayData();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let data = [
+    {name: "John", age: 20},
+    {name: "David", age: 23},
+]
 
 function displayData(){
-    let dataRow = document.getElementById("inputData");
-    dataRow.innerHTML="";
-    data.forEach((value,index)=>{
-        let addRow = `<tr>
+    let dataRows = document.getElementById("inputData");
+    dataRows.innerHTML = "";
+
+    data.forEach((value, index)=>{
+        let row = `<tr>
         <td>${value.name}</td>
         <td>${value.age}</td>
-        <td><button class="btn btn-info" data-index="${index}">Edit</button>
-        <button class="btn btn-danger" data-index="${index}">Delete</button></td></tr>`;
+        <td><button class="btn btn-info edit" data-index="${index}">Edit</button>
+        <button class="btn btn-danger delete" data-index="${index}">Delete</button></td></tr>`;
 
-        dataRow.insertAdjacentHTML("beforeend", addRow);
-    });
+        dataRows.insertAdjacentHTML("beforeend", row)
+    })
+    
 }
-    function formSubmit(event){
-        event.preventDefault();
-        
-        let nameInput = document.getElementById("name"); 
-        let ageInput = document.getElementById("age");
 
-        let name = nameInput.value;
-        let age = ageInput.value;
+displayData()  
+
+
+function formSubmit(event){
+    event.preventDefault();
+
+    let nameInput = document.getElementById("name");
+    let ageInput = document.getElementById("age");
+
+    let name = nameInput.value;
+    let age = ageInput.value;
+
+    data.push({name, age})
+
+    nameInput.value = "";
+    ageInput.value = "";
+
+    displayData()
+
+}
+
+function editData(event){
+    let index = event.target.getAttribute("data-index");
+    let editData = data[index];
+
+    let nameInput = document.getElementById("name");
+    let ageInput = document.getElementById("age");
+
+    nameInput.value = editData.name;
+    ageInput.value = editData.age;
+
+    data.splice(index, 1);
+
+    displayData();
+}
+
+function deleteData(event){
+    let index = event.target.getAttribute("data-index");
     
-        data.push({name, age});
-    
-        nameInput.value = "";
-        ageInput.value = "";
-    
-        displayData(); 
-    
+    data.splice(index, 1);
+
+    displayData();
+}
+
+document.getElementById("form").addEventListener("submit", formSubmit)
+
+document.getElementById("inputData").addEventListener("click",(event)=>{
+    if(event.target.classList.contains("edit")){
+        editData(event)
     }
-
-    function editData(event){
-        let index = event.target.getAttribute("data-index");
-        let record = data[index];
-
-        let nameInput = document.getElementById("name");
-        let ageInput = document.getElementById("age");
-
-        nameInput.value = record.name;
-        ageInput.value = record.age;
-
-        data.splice(index, 1);
-        displayData();
+    else if(event.target.classList.contains("delete")){
+        deleteData(event)
     }
-
-    function deleteData(event){
-        let index = event.target.getAttribute("data-index");
-        data.splice(index, 1);
-        displayData();
-    }
-
-
-
-    let submit = document.getElementById("form");
-    submit.addEventListener("submit", formSubmit);
-
-    document.getElementById("inputData").addEventListener("click", (event)=>{
-       if(event.target.classList.contains("btn-info")){
-        editData(event);
-       }
-       else if(event.target.classList.contains("btn-danger")){
-        alert("edit btn clicked");
-       }
-    });
-displayData();
-
+})
