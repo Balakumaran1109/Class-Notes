@@ -1,4 +1,4 @@
-// function to get the entered value in search box
+// function to get the entered value from search box
 function getValue() {
   let getWord = document.getElementsByClassName("form-control")[0];
   let inputWord = getWord.value.toLowerCase();
