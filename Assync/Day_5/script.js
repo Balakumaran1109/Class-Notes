@@ -73,3 +73,4 @@ document.getElementById("inputData").addEventListener("click",(event)=>{
         deleteData(event)
     }
 })
+
