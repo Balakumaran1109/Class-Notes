@@ -1,8 +1,12 @@
 // function to get the entered value from search box
-function getValue() {
+function getValue(event) {
+  event.preventDefault();
   let getWord = document.getElementsByClassName("form-control")[0];
   let inputWord = getWord.value.toLowerCase();
+  let formReset = document.getElementsByClassName("form-group")[0];
+  formReset.reset();
   fetchData(inputWord);
+  
 }
 
 // function to retrieve data from api
@@ -52,5 +56,5 @@ function displayData(response) {
 }
 
 // addEventListener for button to invoke the getValue function
-let button = document.getElementsByClassName("btn-outline-primary")[0];
+let button = document.getElementsByClassName("input-group")[0];
 button.addEventListener("click", getValue);
