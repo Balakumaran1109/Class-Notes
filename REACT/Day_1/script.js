@@ -101,13 +101,21 @@
 
 // closure
 
-function closure1(){
-    let count = 0;
-    function sum(){
-        count++;
-        console.log(count);
-    }
-    return sum;
+// function closure1(){
+//     let count = 0;
+//     function sum(){
+//         count++;
+//         console.log(count);
+//     }
+//     return sum;
+// }
+// let result = closure1();
+// result();
+
+
+for(let i=0; i<5; i++){
+    setTimeout(()=>{
+    },4000)
+
 }
-let result = closure1();
-result();
+console.log(i)
