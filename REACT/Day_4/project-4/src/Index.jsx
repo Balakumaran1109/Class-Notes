@@ -3,9 +3,7 @@ import React, { Component } from 'react'
 export class Index extends Component {
     constructor(){
         super();
-        this.state = {
-            items : 0
-        }
+        this.state = {items: 0}
         console.log("constructor called")
     }
 
@@ -15,22 +13,21 @@ export class Index extends Component {
 
     componentDidUpdate(){
         console.log("componentDidUpdate called")
-
     }
 
     componentWillUnmount(){
-      console.log("componentWillUnmount called")
+        console.log("componentWillUnmount called")
     }
 
-    handleClick = ()=>{
-        this.setState({items : this.state.items + 1})
+    buttonClick = ()=>{
+        this.setState({items: this.state.items + 1})
     }
+
   render() {
     console.log("render called")
     return (
       <>
-      <div>{this.state.items}</div>
-      {/* <button onClick={this.handleClick}>Click here</button> */}
+      <button onClick={this.buttonClick}>Count{this.state.items}</button>
       </>
     )
   }

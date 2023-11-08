@@ -5,18 +5,20 @@ import './App.css'
 import Index from './Index'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   const handleClick = ()=>{
-    setCount(count => count + 1)
+    setCount(count + 1);
   }
+
   return (
     <>
     <div>App component</div>
-    <div>Count : {count}</div>
-    <button onClick={handleClick}>Click here</button>
-    {count < 5 ? <Index/> : <div>Component removed</div> }
-     
+    <div>{count}</div>
+    <button onClick={handleClick}>click</button>
+    <div>
+    {count < 5 ? <Index/> : <div>Component removed</div>}
+    </div>
     </>
   )
 }
