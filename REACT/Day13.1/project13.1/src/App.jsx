@@ -2,16 +2,16 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Todo from './Todo'
-import TodoList from './TodoList'
+import { useContext } from 'react'
+import { NameContext } from './Context'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const {name, setName} = useContext(NameContext)
 
   return (
     <>
-      <Todo/>
-      {/* <TodoList/> */}
+      {name}
     </>
   )
 }

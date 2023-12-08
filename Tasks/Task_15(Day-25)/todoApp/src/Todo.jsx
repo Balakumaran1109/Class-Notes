@@ -5,13 +5,11 @@ import Dropdown from './Dropdown';
 function Todo() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [status, setStatus] = useState("");
   const [details, setDetails] = useState([]);
-  const [filter, setFilter] = useState("all");
 
   const handleClickAdd = (event) => {
     if (name.trim() !== '' && description.trim() !== '') {
-      setDetails([...details, { name, description, status }]);
+      setDetails([...details, { name, description }]);
       setName("")
       setDescription("")
       event.preventDefault()
@@ -38,19 +36,6 @@ function Todo() {
     setDescription(data)
   }
 
-  const handleStatus = ()=>{
-
-  }
-
-  const filterTodos = () => {
-    if(filter === "all"){
-      return details;
-    }
-    else if(filter === "completed"){
-      return details.filter((e, index)=> e.edi)
-    }
-    
-  }
 
   return (
     <>
@@ -73,7 +58,7 @@ function Todo() {
         <div>
           <div className='d-flex'>
             <div class="p-2"><h4>My Todos</h4></div>
-            <div class="ml-auto p-2"><h4>Status Filter : </h4><Dropdown passFilterFunction={handleFilter} option1="All" option2="Completed" option3="Not Completed" /></div>
+            <div class="ml-auto p-2"><h4>Status Filter : </h4><Dropdown option1="All" option2="Completed" option3="Not Completed" /></div>
           </div><br></br>
 
           <div class="row">

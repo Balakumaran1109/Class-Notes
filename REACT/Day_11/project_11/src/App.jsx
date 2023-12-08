@@ -2,16 +2,14 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Todo from './Todo'
-import TodoList from './TodoList'
+import TicTacToe from './TicTacToe'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <Todo/>
-      {/* <TodoList/> */}
+    <h1 className='text-center mt-5'>TIC TAC TOE</h1>
+      <TicTacToe/>
     </>
   )
 }

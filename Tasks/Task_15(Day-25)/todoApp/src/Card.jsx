@@ -20,9 +20,9 @@ function Card(props) {
     <div class="card-body">
     <h6 class="card-text">Name : {props.Name}</h6><br></br>
     <p class="card-text">Description : {props.Description}</p><br></br>
-    <div>Status: {todo.status}</div>
+    <div>Status: </div>
                 <select className='bg bg-primary'
-                  value={todo.status}
+                  
                   onChange={(e) => handleStatusChange(index, e.target.value)}
                 >
                   <option className="option" value="completed">Completed</option>
