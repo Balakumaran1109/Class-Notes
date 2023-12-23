@@ -1,0 +1,29 @@
+Install Axios Library:
+npm i axios
+import import axios from 'axios'
+
+
+Install Bootstrap:
+npm install react-bootstrap bootstrap
+import "bootstrap/dist/css/bootstrap.min.css";
+
+
+Install React Toastify:
+npm i react-toastify
+import 'react-toastify/dist/ReactToastify.css';
+
+
+Install React Router:
+npm i react-router-dom
+
+
+Install json server:
+npm install -g json-server
+"json-server":"json-server --watch db.json --port 4000"
+npm run json-server
+
+
+Install Netlify:
+npm i netlify-cli -g
+npm run build
+netlify deploy
