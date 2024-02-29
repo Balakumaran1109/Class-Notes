@@ -1,0 +1,10 @@
+For Package.json :
+npm init -y
+
+
+For Installing Express :
+npm install express
+
+
+For Installing nodemon :
+npm install nodemon

@@ -10,7 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 Install React Toastify:
 npm i react-toastify
-import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css'
 
 
 Install React Router:
@@ -27,3 +27,8 @@ Install Netlify:
 npm i netlify-cli -g
 npm run build
 netlify deploy
+
+
+Install Redux:
+npm install @reduxjs/toolkit 
+npm install react-redux 
