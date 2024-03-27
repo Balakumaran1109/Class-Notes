@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Card from "./Card";
-import Dropdown from "./Dropdown";
+import React, { useState } from "react";
 
 function Todo() {
   const [name, setName] = useState("");
@@ -8,48 +6,43 @@ function Todo() {
   const [details, setDetails] = useState([]);
   const [filter, setFilter] = useState("all");
 
-  const handleClickAdd = (event) => {
+  const handleClickAdd = () => {
     if (name.trim() !== "" && description.trim() !== "") {
-      setDetails([...details, { name, description }]);
+      setDetails([...details, { name, description, status: "notcompleted" }]);
       setName("");
       setDescription("");
       event.preventDefault();
     }
   };
 
-  const handleClickDelete = (data) => {
-    const deleteItem = [...details];
-    deleteItem.splice(data, 1);
-    setDetails(deleteItem);
-  };
-
-  const handleRecieveName = (data, index) => {
+  const handleClickDelete = (index) => {
     const deleteItem = [...details];
     deleteItem.splice(index, 1);
     setDetails(deleteItem);
-    setName(data);
+    console.log(index);
   };
 
-  const handleRecieveDescription = (data, index) => {
+  const handleClickEdit = (value, index) => {
     const deleteItem = [...details];
     deleteItem.splice(index, 1);
     setDetails(deleteItem);
-    setDescription(data);
+    setName(value.name);
+    setDescription(value.description);
   };
 
   const handleStatusChange = (index, newStatus) => {
-    const updatedTodos = [...todos];
+    const updatedTodos = [...details];
     updatedTodos[index].status = newStatus;
-    setTodos(updatedTodos);
+    setDetails(updatedTodos);
   };
 
   const filterTodos = () => {
     if (filter === "all") {
-      return todos;
+      return details;
     } else if (filter === "completed") {
-      return todos.filter((todo) => todo.status === "completed");
+      return details.filter((todo) => todo.status === "completed");
     } else if (filter === "notcompleted") {
-      return todos.filter((todo) => todo.status === "notcompleted");
+      return details.filter((todo) => todo.status === "notcompleted");
     }
   };
 
@@ -102,25 +95,64 @@ function Todo() {
             </div>
             <div class="ml-auto p-2">
               <h4>Status Filter : </h4>
-              <Dropdown
-                option1="All"
-                option2="Completed"
-                option3="Not Completed"
-              />
+              <div>
+                <select
+                  value={filter}
+                  onChange={(e) => setFilter(e.target.value)}
+                >
+                  <option value="all">All</option>
+                  <option value="completed">Completed</option>
+                  <option value="notcompleted">Not Completed</option>
+                </select>
+              </div>
             </div>
           </div>
           <br></br>
 
           <div class="row">
-            {details.map((value, index) => (
-              <Card
-                passDeleteFunction={handleClickDelete}
-                passFunction1={handleRecieveName}
-                passFunction={handleRecieveDescription}
-                keys={index}
-                Name={value.name}
-                Description={value.description}
-              />
+            {filterTodos().map((value, index) => (
+              <div className="col-4" id="column">
+                <div class="card text-dark bg-light mb-3">
+                  <div class="card-body">
+                    <h6 class="card-text">Name : {value.name}</h6>
+                    <br></br>
+                    <p class="card-text">Description : {value.description}</p>
+                    <br></br>
+                    <div>
+                      <span>Status : </span>
+                      <select
+                        className="bg bg-primary"
+                        value={value.status}
+                        onChange={(e) =>
+                          handleStatusChange(index, e.target.value)
+                        }
+                      >
+                        <option className="option" value="completed">
+                          Completed
+                        </option>
+                        <option className="option" value="notcompleted">
+                          Not Completed
+                        </option>
+                      </select>{" "}
+                    </div>
+                    <br></br>{" "}
+                    <div className="text-center">
+                      <button
+                        className="btn btn-primary m-2"
+                        onClick={() => handleClickEdit(value, index)}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        className="btn btn-danger m-2"
+                        onClick={() => handleClickDelete(index)}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>

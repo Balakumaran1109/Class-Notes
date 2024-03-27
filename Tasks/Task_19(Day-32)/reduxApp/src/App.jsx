@@ -92,7 +92,7 @@ function App() {
     <>
     <div>
       <p>count: {count}</p>
-      <button onClick={()=> dispatch({type:"increment", payload:mobileDetails})}>Increment</button>
+      <button onClick={()=> dispatch(increment())}>Increment</button>
       <button onClick={()=> dispatch(decrement())}>Decrement</button>
     </div>
     </>

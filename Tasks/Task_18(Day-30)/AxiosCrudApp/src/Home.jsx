@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 function Home() {
 
     const [columns, setColumns] = useState([])
     const [records, setRecords] = useState([])
+    const navigate = useNavigate()
 
     useEffect(()=>{
         axios.get('https://jsonplaceholder.typicode.com/users')
@@ -28,7 +29,7 @@ function Home() {
                     {columns.map((data, index)=>(
                         <th key={index}>{data.toUpperCase()}</th>
                     ))}
-                    <th>Action</th>
+                    <th>ACTION</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,16 +50,30 @@ function Home() {
                             <td>{data.company.name}</td>
                             <td>
                                 <Link to={`/update/${data.id}`} className='btn btn-success m-2'>Update</Link>
-                                <Link to={`/delete/${data.id}`} className='btn btn-danger m-2'>Delete</Link>
+                                <button onClick={()=>handleDelete(data.id)} className='btn btn-danger m-2'>Delete</button>
                             </td>
                         </tr>
                     ))}  
                 </tbody>
-                
             </table>
         </div>
     </div>
   )
+
+  function handleDelete(id){
+    const conf = window.confirm("Do you want to delete the record ?")
+
+    if(conf){
+        axios.delete('https://jsonplaceholder.typicode.com/users/' + id)
+        .then((res) => {
+            alert("Record deleted successfully");
+            navigate("/")
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+  }
 }
 
 export default Home

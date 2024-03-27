@@ -10,39 +10,33 @@ function Edit() {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetchData(id)
-   
-  }, []);
+  useEffect(()=>{
+    axios.get('https://jsonplaceholder.typicode.com/users/'+ id)
+    .then((result)=>{
+      setData(result.data)
+    })
+    .catch((err)=>{err})
+},[])
 
-  const fetchData = async(id)=>{
-    await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
-      .then((result) => 
-        setData(result.data)
-      )
-      .catch((err) => {
-        console.log(err);
-      }); 
-  }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    axios
+      .put('https://jsonplaceholder.typicode.com/users/' + id, data)
+      .then(() => {
+        alert("Data Updated Successfully");
+        navigate("/");
+      })
+      .catch((err) => console.log(err));
+  };
+ 
 
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     axios
-//       .put("https://jsonplaceholder.typicode.com/users/" + id)
-//       .then(() => {
-//         alert("Data Updated Successfully");
-//         navigate("/");
-//       })
-//       .catch((err) => console.log(err));
-//   };
-console.log(data)
-console.log(data.address.suite)
+
   return (
     <div>
             <div>
             <div className="d-flex justify-content-center align-items-center w-200 vh-200 my-3">
               <div className="w-50 p-5 border bg-light">
-                <form className="form-group">
+                <form className="form-group" onSubmit={handleSubmit}>
                   <div>
                     <label htmlFor="name">ID:</label>
                     <input
@@ -50,12 +44,13 @@ console.log(data.address.suite)
                       type="text"
                       className="form-control"
                       disabled
-                      value={data.name}
+                      value={data.id
+                      }
                     ></input>
                   </div>
                   <br></br>
     
-                  {/* <div>
+                  <div>
                     <label htmlFor="name">NAME:</label>
                     <input
                       name="name"
@@ -100,7 +95,7 @@ console.log(data.address.suite)
                         name="name"
                         type="text"
                         className="form-control"
-                        // value={console.log(data.address)}
+                        value={data?.address?.street}
                         onChange={(e) =>
                             setData({
                               ...data,
@@ -116,13 +111,13 @@ console.log(data.address.suite)
                         name="name"
                         type="text"
                         className="form-control"
-                        // value={data.address.suite}
-                        // onChange={(e) =>
-                        //   setData({
-                        //     ...data,
-                        //     address: { ...data.address, suite: e.target.value },
-                        //   })
-                        // }
+                        value={data?.address?.suite}
+                        onChange={(e) =>
+                          setData({
+                            ...data,
+                            address: { ...data.address, suite: e.target.value },
+                          })
+                        }
                       ></input>
                     </div>
                     <br></br>
@@ -133,13 +128,13 @@ console.log(data.address.suite)
                         name="name"
                         type="text"
                         className="form-control"
-                        // value={data.address.city}
-                        // onChange={(e) =>
-                        //   setData({
-                        //     ...data,
-                        //     address: { ...data.address, city: e.target.value },
-                        //   })
-                        // }
+                        value={data?.address?.city}
+                        onChange={(e) =>
+                          setData({
+                            ...data,
+                            address: { ...data.address, city: e.target.value },
+                          })
+                        }
                       ></input>
                     </div>
                     <br></br>
@@ -150,13 +145,13 @@ console.log(data.address.suite)
                         name="name"
                         type="text"
                         className="form-control"
-                        // value={data.address.zipcode}
-                        // onChange={(e) =>
-                        //   setData({
-                        //     ...data,
-                        //     address: { ...data.address, zipcode: e.target.value },
-                        //   })
-                        // }
+                        value={data?.address?.zipcode}
+                        onChange={(e) =>
+                          setData({
+                            ...data,
+                            address: { ...data.address, zipcode: e.target.value },
+                          })
+                        }
                       ></input>
                     </div>
                   </div>
@@ -196,13 +191,13 @@ console.log(data.address.suite)
                         name="name"
                         type="text"
                         className="form-control"
-                        // value={data.company.name}
-                        // onChange={(e) =>
-                        //   setData({
-                        //     ...data,
-                        //     company: { ...data.company, name: e.target.value },
-                        //   })
-                        // }
+                        value={data?.company?.name}
+                        onChange={(e) =>
+                          setData({
+                            ...data,
+                            company: { ...data.company, name: e.target.value },
+                          })
+                        }
                       ></input>
                     </div>
                     <br></br>
@@ -213,16 +208,16 @@ console.log(data.address.suite)
                         name="name"
                         type="text"
                         className="form-control"
-                        // value={data.company.catchPhrase}
-                        // onChange={(e) =>
-                        //   setData({
-                        //     ...data,
-                        //     company: {
-                        //       ...data.company,
-                        //       catchPhrase: e.target.value,
-                        //     },
-                        //   })
-                        // }
+                        value={data?.company?.catchPhrase}
+                        onChange={(e) =>
+                          setData({
+                            ...data,
+                            company: {
+                              ...data.company,
+                              catchPhrase: e.target.value,
+                            },
+                          })
+                        }
                       ></input>
                     </div>
                     <br></br>
@@ -233,20 +228,20 @@ console.log(data.address.suite)
                         name="name"
                         type="text"
                         className="form-control"
-                        // value={data.company.bs}
-                        // onChange={(e) =>
-                        //   setData({
-                        //     ...data,
-                        //     company: { ...data.company, bs: e.target.value },
-                        //   })
-                        // }
+                        value={data?.company?.bs}
+                        onChange={(e) =>
+                          setData({
+                            ...data,
+                            company: { ...data.company, bs: e.target.value },
+                          })
+                        }
                       ></input>
                     </div>
                   </div>
                   <br></br>
-                  <br></br> */}
+                  <br></br>
                   <button className="btn btn-success" type="submit">
-                    Submit
+                    Update
                   </button>
                 </form>
               </div>
