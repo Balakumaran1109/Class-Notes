@@ -6,7 +6,7 @@ const fs = require("fs");
 
 const path = require("path");
 
-const PORT = 4000;
+const PORT = 3000;
 
 const outputFolder = "./output";
 
@@ -15,45 +15,42 @@ if (!fs.existsSync(outputFolder)) {
 }
 
 app.get("/createFile", (req, res) => {
-  const data = new Date();
+  const currentTime = new Date();
 
-  const year = data.getFullYear();
+  const year = currentTime.getFullYear().toString();
+  const month = (currentTime.getMonth() + 1).toString();
+  const date = currentTime.getDate().toString();
+  const hours = currentTime.getHours().toString();
+  const mins = currentTime.getMinutes().toString();
+  const secs = currentTime.getSeconds().toString();
 
-  const month = data.getMonth() + 1;
-
-  const date = data.getDate();
-
-  const hour = data.getHours();
-
-  const mins = data.getMinutes();
-
-  const secs = data.getSeconds();
-
-  const fileName = `${year}-${month}-${date}-${hour}-${mins}-${secs}.txt`;
+  const fileName = `${year}-${month}-${date}-${hours}-${mins}-${secs}.txt`;
 
   const filePath = path.join(outputFolder, fileName);
 
-  fs.writeFile(filePath, data.toISOString(), (err) => {
+  fs.writeFile(filePath, currentTime.toISOString(), (err) => {
     if (err) {
-      res.status(500).send(`Error creating file:, ${err}`);
+      res.status(500).send(`Error creating file : ${err}`);
       return;
     }
-    res.send(`File created successfully: ${fileName}`);
+
+    res.send(`File created successfully at path : ${filePath} `);
   });
 });
 
-app.get("/readFiles", (req, res) => {
+app.get("/readFile", (req, res) => {
   fs.readdir(outputFolder, (err, files) => {
     if (err) {
-      res.status(500).send(`Error reading files:, ${err}`);
+      res.status(500).send(`Error creating file : ${err}`);
       return;
     }
-    const txtFiles = files.filter((file) => path.extname(file) === ".txt");
 
-    res.json(txtFiles);
+    const textFile = files.filter((val) => path.extname(val) === ".txt");
+
+    res.json(textFile);
   });
 });
 
 app.listen(PORT, () => {
-  console.log("Server is running:", PORT);
+  console.log("Server is running on PORT : ", PORT);
 });

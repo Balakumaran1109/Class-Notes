@@ -1,3 +1,12 @@
+Vite initialisation:
+npm init Vite
+npm run dev
+
+Netlify Deployment:
+npm i netlify-cli-g
+npm run build
+netlify deploy
+
 Install Axios Library:
 npm i axios
 import import axios from 'axios'

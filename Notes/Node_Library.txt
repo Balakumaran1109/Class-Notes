@@ -8,3 +8,4 @@ npm install express
 
 For Installing nodemon :
 npm install nodemon
+npx nodemon fileName

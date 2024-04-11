@@ -3,16 +3,17 @@ import { createSlice } from "@reduxjs/toolkit";
 export const quantitySlice = createSlice({
   name: "quantity",
   initialState: {
-    details: [],
+    details: []
   },
   reducers: {
+
     initialDetails: (state, action) => {
       state.details.push(action.payload);
     },
     
-    handleIncrement: (state, action) => {
-        // const output = state.details;
-        console.log(state.details)
+    handleIncrement : (state, action) => {
+      console.log(state.details.map(val => val))
+       ;        
     }
 }
 });
