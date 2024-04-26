@@ -6,6 +6,20 @@ For Installing Express :
 npm install express
 
 
-For Installing nodemon :
+For Installing Nodemon :
 npm install nodemon
 npx nodemon fileName
+
+
+For Installing Body Parser :
+npm install body-parser
+
+
+For Installing Mongoose :
+npm install mongoose
+
+For Installing env:
+npm install dotenv --save
+require("dotenv").config();
+
+
