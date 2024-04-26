@@ -10,7 +10,7 @@ require("dotenv").config();
 
 const PORT = process.env.PORT;
 
-const Mentor = require("./Models/mentor");
+// const Mentor = require("./Models/mentor");
 
 const Student = require("./Models/student");
 
@@ -22,6 +22,13 @@ mongoose
   .catch((err) => console.log("Cannot connect to mongo DB", err));
 
 app.use(body_parser.json());
+
+const mentorSchema = new mongoose.Schema({
+  name: String,
+  students: [{ type: mongoose.Schema.Types.ObjectId, ref: "Student" }],
+});
+
+const Mentor = mongoose.model("Mentor", mentorSchema);
 
 // API to create Mentor
 app.post("/mentor", async (req, res) => {
