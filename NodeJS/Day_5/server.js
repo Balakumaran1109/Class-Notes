@@ -6,7 +6,7 @@ const body_parser = require("body-parser");
 
 const app = express();
 
-require("dotenv").config();
+// require("dotenv").config();
 
 const PORT = 3000;
 
@@ -35,6 +35,10 @@ const mentorSchema = new mongoose.Schema({
 });
 
 const Mentor = mongoose.model("Mentor", mentorSchema);
+
+app.get("/", (req, res) => {
+  res.send("Working good");
+});
 
 // API to create Mentor
 app.post("/mentor", async (req, res) => {
