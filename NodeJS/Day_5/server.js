@@ -43,9 +43,9 @@ app.get("/", (req, res) => {
 // API to create Mentor
 app.post("/mentor", async (req, res) => {
   try {
-    const mentorName = new Mentor(req.body);
-    await mentorName.save();
-    res.status(200).send(mentorName);
+    // const mentorName = new Mentor(req.body);
+    // await mentorName.save();
+    res.status(200).send(req.body);
   } catch (error) {
     res.status(400).send(error);
   }
