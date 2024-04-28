@@ -12,25 +12,30 @@ const PORT = 3000;
 
 // const Mentor = require("./Models/mentor");
 
-const Student = require("./Models/student");
+// const Student = require("./Models/student");
 
-const params = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-};
+// const params = {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// };
 
 const DB_URL =
-  "mongodb+srv://balakumaran1109:8281769984@cluster0.n0cjoj0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://balakumaran1109:bala123@cluster0.mbvsbxk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 mongoose
-  .connect(DB_URL, params)
+  .connect(DB_URL, {})
   .then(() => console.log("Mongo DB is connected"))
   .catch((err) => console.log("Cannot connect to mongo DB", err));
 
 app.use(body_parser.json());
 
 const mentorSchema = new mongoose.Schema({
-  name: String,
+  name: {
+    type: String,
+    required: true,
+    maxlength: 32,
+    trim: true,
+  },
   students: [{ type: mongoose.Schema.Types.ObjectId, ref: "Student" }],
 });
 
@@ -43,79 +48,79 @@ app.get("/", (req, res) => {
 // API to create Mentor
 app.post("/mentor", async (req, res) => {
   try {
-    // const mentorName = new Mentor(req.body);
-    // await mentorName.save();
+    const mentorName = new Mentor(req.body);
+    await mentorName.save();
     res.status(200).send(req.body);
   } catch (error) {
     res.status(400).send(error);
   }
 });
 
-// API to create Student
-app.post("/student", async (req, res) => {
-  try {
-    const studentName = new Student(req.body);
-    await studentName.save();
-    res.status(200).send(studentName);
-  } catch (error) {
-    res.status(400).send(error);
-  }
-});
+// // API to create Student
+// app.post("/student", async (req, res) => {
+//   try {
+//     const studentName = new Student(req.body);
+//     await studentName.save();
+//     res.status(200).send(studentName);
+//   } catch (error) {
+//     res.status(400).send(error);
+//   }
+// });
 
-// Write API to Assign a student to Mentor
-app.post("/mentor/:mentorID/assign", async (req, res) => {
-  try {
-    const mentor = await Mentor.findById(req.params.mentorID);
-    const students = await Student.find({ _id: { $in: req.body.students } });
+// // Write API to Assign a student to Mentor
+// app.post("/mentor/:mentorID/assign", async (req, res) => {
+//   try {
+//     const mentor = await Mentor.findById(req.params.mentorID);
+//     const students = await Student.find({ _id: { $in: req.body.students } });
 
-    res.status(200).send(students);
-  } catch (error) {
-    res.status(400).send(error.message);
-  }
-});
+//     res.status(200).send(students);
+//   } catch (error) {
+//     res.status(400).send(error.message);
+//   }
+// });
 
-// Write API to Assign or Change Mentor for particular Student
-app.put("/student/:studentID/changeMentor/:mentorID", async (req, res) => {
-  try {
-    const student = await Student.findById(req.params.studentID);
-    const mentor = await Mentor.findById(req.params.mentorID);
+// // Write API to Assign or Change Mentor for particular Student
+// app.put("/student/:studentID/changeMentor/:mentorID", async (req, res) => {
+//   try {
+//     const student = await Student.findById(req.params.studentID);
+//     const mentor = await Mentor.findById(req.params.mentorID);
 
-    if (student.cMentor) {
-      student.pMentor.push(student.cMentor);
-    }
+//     if (student.cMentor) {
+//       student.pMentor.push(student.cMentor);
+//     }
 
-    student.cMentor = mentor._id;
-    student.save();
+//     student.cMentor = mentor._id;
+//     student.save();
 
-    res.status(200).send(student);
-  } catch (error) {
-    res.status(400).send(error.message);
-  }
-});
+//     res.status(200).send(student);
+//   } catch (error) {
+//     res.status(400).send(error.message);
+//   }
+// });
 
-// Write API to show all students for a particular mentor
-app.get("/mentor/:mentorID/students", async (req, res) => {
-  try {
-    const mentor = await Mentor.findById(req.params.mentorID).populate(
-      "students"
-    );
-    res.status(200).send(mentor);
-  } catch (error) {
-    res.status(400).send(error.message);
-  }
-});
+// // Write API to show all students for a particular mentor
+// app.get("/mentor/:mentorID/students", async (req, res) => {
+//   try {
+//     const mentor = await Mentor.findById(req.params.mentorID).populate(
+//       "students"
+//     );
+//     res.status(200).send(mentor);
+//   } catch (error) {
+//     res.status(400).send(error.message);
+//   }
+// });
 
-// Write an API to show the previously assigned mentor for a particular student
-app.get("/student/:studentID/pMentor", async (req, res) => {
-  try {
-    const student = await Student.findById(req.params.studentID).populate(
-      "pMentor"
-    );
-    res.status(200).send(student);
-  } catch (error) {
-    res.status(400).send(error.message);
-  }
-});
+// // Write an API to show the previously assigned mentor for a particular student
+// app.get("/student/:studentID/pMentor", async (req, res) => {
+//   try {
+//     const student = await Student.findById(req.params.studentID).populate(
+//       "pMentor"
+//     );
+//     res.status(200).send(student);
+//   } catch (error) {
+//     res.status(400).send(error.message);
+//   }
+// });
 
 app.listen(PORT, () => {
   console.log(`Server is connected on PORT : ${PORT}`);
