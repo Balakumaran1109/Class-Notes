@@ -8,16 +8,22 @@ const app = express();
 
 require("dotenv").config();
 
-const PORT = process.env.PORT;
+const PORT = 3000;
 
 // const Mentor = require("./Models/mentor");
 
 const Student = require("./Models/student");
 
-const DB_URL = process.env.DB_URL;
+const params = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+};
+
+const DB_URL =
+  "mongodb+srv://balakumaran1109:8281769984@cluster0.n0cjoj0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 mongoose
-  .connect(DB_URL, {})
+  .connect(DB_URL, params)
   .then(() => console.log("Mongo DB is connected"))
   .catch((err) => console.log("Cannot connect to mongo DB", err));
 
