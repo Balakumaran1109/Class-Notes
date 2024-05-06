@@ -41,3 +41,7 @@ netlify deploy
 Install Redux:
 npm install @reduxjs/toolkit 
 npm install react-redux 
+
+
+Install MUI:
+npm install @mui/material @emotion/react @emotion/styled

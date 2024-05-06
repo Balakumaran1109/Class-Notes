@@ -23,3 +23,5 @@ npm install dotenv --save
 require("dotenv").config();
 
 
+For Installing bcrypt:
+npm i bcrypt
